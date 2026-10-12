@@ -16,7 +16,7 @@ flowchart LR
     B -->|"SSIS: HMS_Landing<br/>+ SHA-256 row hash"| C[("HMS_Landing<br/>raw copy")]
     C -->|"SSIS: staging_Test<br/>hash-based CDC + history"| D[("HMS_Staging<br/>versioned rows")]
     D -->|"SSIS: HMS_DWH<br/>surrogate keys, measures"| E[("HMS_DWH<br/>star schemas")]
-    E --> F["Semantic model (SSRS)<br/>+ Power BI dashboards"]
+    E --> F["Semantic model<br/>+ Power BI dashboards"]
 ```
 
 | Layer | Database | Purpose |
@@ -121,9 +121,7 @@ Microsoft SQL Server · T-SQL · SSIS (≈50 packages) · C# Script Component (S
 
 Built by a team of interns at **Jadara Solutions** (2024):
 
-- **Ahmed Emad** ([@ahmedemad2002](https://github.com/ahmedemad2002)): data warehouse design and implementation (dimensional model, DWH schema and constraints, SSIS dimension and fact load packages, transformation queries)
-- **[@sayedzayan](https://github.com/sayedzayan)**: staging layer (incremental/history logic), validation queries, DWH error handling
-- **Mohamed El3omda**: source database, synthetic data, landing layer
-- **Amr**: source data consistency scripts
-- **Youssef Hegazy** ([@YoussefHegazy07](https://github.com/YoussefHegazy07)): landing packages
-- **[@Arwa45](https://github.com/Arwa45)**: semantic model (SSRS) and Power BI dashboards
+- **Ahmed Emad** ([@ahmed-emad-dataeng](https://github.com/ahmed-emad-dataeng)): source OLTP database and synthetic data generation, landing layer (SSIS packages with SHA-256 row hashing), data warehouse design and implementation (dimensional model, DWH schema and constraints, SSIS dimension and fact load packages, transformation queries)
+- **Sayed Zayan** ([@sayedzayan](https://github.com/sayedzayan)): staging layer (incremental/history logic), validation queries, DWH error handling
+- **Youssef Hegazy** ([@YoussefHegazy07](https://github.com/YoussefHegazy07)): patient landing package
+- **Arwa Madien** ([@Arwa45](https://github.com/Arwa45)): semantic model and Power BI dashboards
